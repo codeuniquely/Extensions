@@ -73,6 +73,70 @@
             }
         }
 
+        public static IEnumerable<T> Intersperse<T>(this IEnumerable<T> items, T separator)
+        {
+            var first = true;
+            foreach (var item in items)
+            {
+                if (first) 
+                {
+                    first = false;
+                }
+                else
+                {
+                    yield return separator;
+                }
+
+                yield return item;
+            }
+        }
+
+
+        public static IEnumerable<T> Append<T>(this IEnumerable<T> elements, T element)
+        {
+            foreach (T t in elements)
+            {
+                yield return t;
+            }
+
+            yield return element;
+        }
+
+        public static IEnumerable<T> Exclude<T>(this IEnumerable<T> elements, T element)
+        {
+            foreach (T t in elements)
+            {
+                if (!t.Equals(element))
+                {
+                    yield return t;
+                }
+            }
+        }
+
+        // Select with a Where clause
+        public static IEnumerable<T> WhereSelect<T>(this IEnumerable<T> elements, Predicate<T> filter)
+        {
+            foreach (T t in elements)
+            {
+                if (filter(t))
+                {
+                    yield return t;
+                }
+            }
+        }
+
+        public static IEnumerable<TResult> WhereSelect<TElement, TResult>(this IEnumerable<TElement> elements, Predicate<TElement> filter, Converter<TElement, TResult> selector)
+        {
+            foreach (TElement t in elements)
+            {
+                if (filter(t))
+                {
+                    yield return selector(t);
+                }
+            }
+        }
+
+
         // Group an enumerable by more than one column
         public static IEnumerable<GroupResult> GroupByMany<TElement>(this IEnumerable<TElement> elements, params Func<TElement, object>[] groupSelectors)
         {

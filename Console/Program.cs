@@ -1,7 +1,10 @@
 ﻿namespace ExtensionsConsole
 {
     using System;
-    //using ExtensionMethods;
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.Collections.Specialized;
+    using System.Linq;
 
     class Program
     {
@@ -13,6 +16,9 @@
             IntExtension();
             StringExtension();
 
+
+            IEnumerableExtension();
+
             Console.ReadKey();
         }
         
@@ -20,6 +26,7 @@
         {
             lineNumber = 0;
             Console.WriteLine("Bool Extensions");
+        
             Write(true.AsString());
             Write(false.AsString());
             Write(true.ToJson());
@@ -87,20 +94,52 @@
             Write("Hello  World".ToJson());
         }
 
+        private static void IEnumerableExtension()
+        {
+            lineNumber = 0;
+            Console.WriteLine("\nString Extensions");
+
+            var strings = new string[] { "one", "two", "two", "three", "four", "five", "six", "six", "seven", "eight", "nine", "ten" };
+
+            Write(strings.Find(x => x == "zero"));
+            Write(strings.Find(x => x == "two"));
+            Write(Concat(strings.Intersperse(",")));
+
+            WriteMany(strings.DistinctBy(x => x));
+            WriteMany(strings.WhereSelect(x => x.EndsWith("e")));
+            WriteMany(strings.WhereSelect(x => x.StartsWith("f"), x => x.ToString()));
+            WriteMany(strings.Append("eleven"));
+            WriteMany(strings.Exclude("two"));
+        }
+
+        private static string Concat(IEnumerable<string> collection)
+        {
+            string line = string.Empty;
+
+            foreach (var item in collection)
+            {
+                line = line + item;
+            }
+            
+            return line;
+        }
+
+        private static void WriteMany(IEnumerable<string> collection)
+        {
+            string line = string.Empty;
+
+            foreach(var item in collection)
+            {
+                line = line.Extend(item);
+            }
+
+            Write(line);
+        }
+
         private static void Write(object o)
         {
             Write(o.ToString());
         }
-
-        //private static void Write(int i)
-        //{
-        //    Write( i.ToString() );
-        //}
-
-        //private static void Write(bool b)
-        //{
-        //    Write(b.ToString());
-        //}
 
         private static void Write(string line)
         {
@@ -113,3 +152,4 @@
         }
     }
 }
+
