@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console", "Console\Console.csproj", "{3943904C-BB5B-4B38-8DE4-902D890149F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtensionMethods", "ExtensionMethods\ExtensionMethods.csproj", "{351909EC-F192-4B75-8874-ADCF1F90AB6D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3943904C-BB5B-4B38-8DE4-902D890149F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3943904C-BB5B-4B38-8DE4-902D890149F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3943904C-BB5B-4B38-8DE4-902D890149F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3943904C-BB5B-4B38-8DE4-902D890149F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{351909EC-F192-4B75-8874-ADCF1F90AB6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{351909EC-F192-4B75-8874-ADCF1F90AB6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{351909EC-F192-4B75-8874-ADCF1F90AB6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{351909EC-F192-4B75-8874-ADCF1F90AB6D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
