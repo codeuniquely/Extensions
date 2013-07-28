@@ -38,7 +38,7 @@
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="i"></param>
+        /// <param name="i">The integer to be checked</param>
         /// <returns></returns>
         public static bool Zero(this int i)
         {
@@ -46,9 +46,9 @@
         }
 
         /// <summary>
-        /// 
+        /// Is the value less than Zero
         /// </summary>
-        /// <param name="i"></param>
+        /// <param name="i">The integer to be checked</param>
         /// <returns></returns>
         public static bool Negative(this int i)
         {
@@ -56,15 +56,46 @@
         }
 
         /// <summary>
-        /// 
+        /// Is the value greater than Zero
         /// </summary>
-        /// <param name="i"></param>
+        /// <param name="i">The integer to be checked</param>
         /// <returns></returns>
         public static bool Positive(this int i)
         {
             return i > 0;
         }
-        
+
+        /// <summary>
+        /// Is the value an even number
+        /// </summary>
+        /// <param name="i">The integer to be checked</param>
+        /// <returns></returns>
+        public static bool Even(this int i)
+        {
+            return i % 2 == 0;
+        }
+
+        /// <summary>
+        /// Is the value an odd number
+        /// </summary>
+        /// <param name="i">The integer to be checked</param>
+        /// <returns></returns>
+        public static bool Odd(this int i)
+        {
+            return i % 2 != 0;
+        }
+
+        /// <summary>
+        /// Can the value a multiple of the divisor
+        /// </summary>
+        /// <param name="i">The integer to be checked</param>
+        /// <param name="divisor"></param>
+        /// <returns></returns>
+        public static bool DivisibleBy(this int i, int divisor)
+        {
+            return i % divisor == 0;
+        }
+
         /// <summary>
         /// Check if the bit indicated in 'set' in the integer
         /// </summary>
