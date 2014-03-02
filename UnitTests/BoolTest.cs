@@ -7,61 +7,84 @@ namespace UnitTests
     public class BoolTest
     {
         [TestMethod]
-        public void TestToBoolTrueUpper()
+        public void ToBoolTrueUpper()
         {
             Assert.AreEqual(true, "TRUE".ToBool());
         }
 
         [TestMethod]
-        public void TestToBoolTrueLower()
+        public void ToBoolTrueLower()
         {
             Assert.AreEqual(true, "true".ToBool());
         }
 
         [TestMethod]
-        public void TestToBoolTrueMixed()
+        public void ToBoolTrueMixed()
         {
             Assert.AreEqual(true, "True".ToBool());
         }
 
         [TestMethod]
-        public void TestToBoolTrueNonZero()
+        public void ToBoolTrueNonZero()
         {
             Assert.AreEqual(true, "1".ToBool());
         }
 
         [TestMethod]
-        public void TestToBoolTrueIntOne()
+        public void ToBoolTrueIntOne()
         {
             Assert.AreEqual(true, 1.ToBool());
         }
 
         [TestMethod]
-        public void TestToBoolFalseUpper()
+        public void ToBoolFalseUpper()
         {
             Assert.AreEqual(false, "FALSE".ToBool());
         }
 
         [TestMethod]
-        public void TestToBoolFalseLower()
+        public void ToBoolFalseLower()
         {
             Assert.AreEqual(false, "false".ToBool());
         }
 
         [TestMethod]
-        public void TestToBoolFalseMixed()
+        public void ToBoolFalseMixed()
         {
             Assert.AreEqual(false, "False".ToBool());
         }
 
         [TestMethod]
-        public void TestToBoolFalseZero()
+        public void ToBoolFalseZero()
         {
             Assert.AreEqual(false, "0".ToBool());
         }
-        public void TestToBoolFalseIntZero()
+
+        [TestMethod]
+        public void ToBoolFalseIntZero()
         {
             Assert.AreEqual(false, 0.ToBool());
+        }
+
+        [TestMethod]
+        public void FalseAsString()
+        {
+            Assert.AreEqual("0", false.AsString());
+        }
+        [TestMethod]
+        public void TrueAsString()
+        {
+            Assert.AreEqual("1", true.AsString());
+        }
+        [TestMethod]
+        public void FalseToString()
+        {
+            Assert.AreEqual("False", false.ToString());
+        }
+        [TestMethod]
+        public void TrueTotring()
+        {
+            Assert.AreEqual("True", true.ToString());
         }
     }
 }
