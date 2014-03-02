@@ -10,6 +10,16 @@
         /// </summary>
         /// <param name="i">The integer to be checked</param>
         /// <returns><c>true</c> if the value is 0 (zero)</returns>
+        public static bool ToBool(this int i)
+        {
+            return i == 1 ? true : false;
+        }
+
+        /// <summary>
+        /// Convenience method to check if a int has a value representative of a selection of 'No'
+        /// </summary>
+        /// <param name="i">The integer to be checked</param>
+        /// <returns><c>true</c> if the value is 0 (zero)</returns>
         public static bool False(this int i)
         {
             return i == 0;
@@ -123,16 +133,17 @@
         /// </summary>
         /// <param name="i">The integer to be altered</param>
         /// <param name="flag">bit flag to set</param>
-        /// <param name="set">switch on the bit if [set] is <c>true</c> otherwise clear the bit</param>
         /// <returns>The new value with the appropiate bit value set altered</returns>
-        public static int RemoveFlag(this int i, int flag, bool set = true)
+        public static int RemoveFlag(this int i, int flag)
         {
             return (i & flag) != 0 ? i - flag : i;
         }
 
         public static string FormatNumber(this int i, int length)
         {
-            return string.Format("{0}", i.ToString().PadLeft(length, '0'));
+            // Check Length > 0 and < 10
+            int tmp = Math.Abs(i);
+            return (i < 0) ? string.Format("-{0}", tmp.ToString().PadLeft(length - 1, '0')) : string.Format("{0}", tmp.ToString().PadLeft(length, '0'));
         }
     }
 }

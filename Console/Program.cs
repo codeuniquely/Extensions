@@ -12,59 +12,27 @@
 
         static void Main(string[] args)
         {
-            BoolExtension();
-            IntExtension();
             StringExtension();
-
-
             IEnumerableExtension();
 
             Console.ReadKey();
         }
         
-        private static void BoolExtension()
-        {
-            lineNumber = 0;
-            Console.WriteLine("Bool Extensions");
-        
-            Write(true.AsString());
-            Write(false.AsString());
-            Write(true.ToJson());
-        }
-
-        private static void IntExtension()
-        {
-            lineNumber = 0;
-            Console.WriteLine("\nInt Extensions");
-
-            int value = 10;
-
-            Write(value.NonZero());
-            Write(value.Positive());
-            Write(value.Zero());
-            Write(value.Negative());
-            Write(value.FlagSet(2));
-            Write(value.SetFlag(1));
-            Write(value.RemoveFlag(8));
-            Write(value.FormatNumber(6));
-            Write(value.ToJson());
-        }
-
         private static void StringExtension()
         {
             lineNumber = 0;
             Console.WriteLine("\nString Extensions");
 
-            Write("10".ToInt());
-            Write("Hello World".ToInt());
-            Write("TRUE".ToBool());
-            Write("true".ToBool());
-            Write("True".ToBool());
-            Write("1".ToBool());
-            Write("FALSE".ToBool());
-            Write("false".ToBool());
-            Write("False".ToBool());
-            Write("0".ToBool());
+            //Write("10".ToInt());
+            //Write("Hello World".ToInt());
+            //Write("TRUE".ToBool());
+            //Write("true".ToBool());
+            //Write("True".ToBool());
+            //Write("1".ToBool());
+            //Write("FALSE".ToBool());
+            //Write("false".ToBool());
+            //Write("False".ToBool());
+            //Write("0".ToBool());
             Write("Hello World".ToUTF8Bytes());
             Write("Hello World".IsEmpty());
             Write("Hello World".IsNotEmpty());

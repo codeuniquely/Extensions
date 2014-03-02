@@ -3,6 +3,7 @@
     using System;
     using System.Linq.Expressions;
     using System.Reflection;
+    using ExtensionMethods;
 
     /// <summary>
     /// A static helper class to hold IQuerable extension methods
@@ -151,5 +152,11 @@
 
             return query.Provider.CreateQuery<TEntity>(resultExpression);
         }
+
+        public static ProjectionExpression<TSource> Project<TSource>(this IQueryable<TSource> source)
+        {
+            return new ProjectionExpression<TSource>(source);
+        }
+
     }
 }
