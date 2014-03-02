@@ -134,5 +134,17 @@ namespace UnitTests
         {
             Assert.AreEqual("World", "Hello World".Right(5));
         }
+
+        [TestMethod]
+        public void TestSuffix()
+        {
+            Assert.AreEqual("Hello World", "Hello".Suffix(" World"));
+        }
+
+        [TestMethod]
+        public void TestTrimRight()
+        {
+            Assert.AreEqual("Hello", "Hello World".TrimRight(6));
+        }
     }
 }

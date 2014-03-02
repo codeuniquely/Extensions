@@ -44,8 +44,8 @@
             //Write("Hello World".TrimLeft(5));
             //Write("Hekki World".ReplaceAtStart("kki", "llo"));
             //Write("Gwkki World".ReplaceStartWith("Hello"));
-            Write("Hello World".Right(5));
-            Write("Hello".Suffix(" World"));
+            //Write("Hello World".Right(5));
+            //Write("Hello".Suffix(" World"));
             Write("Hello World".TrimRight(5));
             Write("Hello Woeks".ReplaceAtEnd("eks", "rld"));
             Write("Hello Qieks".ReplaceEndWith("World"));
