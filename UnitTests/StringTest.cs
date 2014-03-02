@@ -6,145 +6,239 @@ namespace UnitTests
     [TestClass]
     public class StringTest
     {
+        private const string nullstring = null;
+
         [TestMethod]
-        public void TestToIntNumber()
+        public void ToIntNumber()
         {
             Assert.AreEqual(10, "10".ToInt());
         }
 
         [TestMethod]
-        public void TestToIntNonNumber()
+        public void ToIntNonNumber()
         {
             Assert.AreEqual(0, "Hello World".ToInt());
         }
 
         [TestMethod]
-        public void TestIsEmptyNoContents()
+        public void IsEmptyNoContents()
         {
             Assert.AreEqual(true, "".IsEmpty());
         }
 
         [TestMethod]
-        public void TestIsEmptyWithNull()
+        public void IsEmptyWithNull()
         {
-            string test = null;
-            Assert.AreEqual(true, test.IsEmpty());
+            Assert.AreEqual(true, nullstring.IsEmpty());
         }
 
         [TestMethod]
-        public void TestIsEmptyWithWhitespace()
+        public void IsEmptyWithWhitespace()
         {
             Assert.AreEqual(true, "  ".IsEmpty());
         }
 
         [TestMethod]
-        public void TestContentsIsNotEmpty()
+        public void ContentsIsNotEmpty()
         {
             Assert.AreEqual(false, "Hello World".IsEmpty());
         }
 
         [TestMethod]
-        public void TestIsNotEmpty()
+        public void IsNotEmpty()
         {
             Assert.AreEqual(true, "Hello World".IsNotEmpty());
         }
 
         [TestMethod]
-        public void TestNoContentsIsNotNotEmpty()
+        public void NoContentsIsNotNotEmpty()
         {
             Assert.AreEqual(false, "".IsNotEmpty());
         }
 
         [TestMethod]
-        public void TestNullIsNotNotEmpty()
+        public void NullIsNotNotEmpty()
         {
-            string test = null;
-            Assert.AreEqual(false, test.IsNotEmpty());
+            Assert.AreEqual(false, nullstring.IsNotEmpty());
         }
 
         [TestMethod]
-        public void TestCompare()
+        public void Compare()
         {
             Assert.AreEqual(true, "Hello World".Compare("Hello World"));
         }
 
         [TestMethod]
-        public void TestCompareWithNull()
+        public void CompareWithNull()
         {
             Assert.AreEqual(false, "Hello World".Compare(null));
         }
 
         [TestMethod]
-        public void TestCompareNull()
+        public void CompareNull()
         {
             string test = null;
             Assert.AreEqual(false, test.Compare("Hello World"));
         }
 
         [TestMethod]
-        public void TestExtend()
+        public void Extend()
         {
             Assert.AreEqual("Hello,World", "Hello".Extend("World"));
         }
 
         [TestMethod]
-        public void TestLimit()
+        public void Limit()
         {
             Assert.AreEqual("Hello", "Hello World".LimitTo(5));
         }
 
         [TestMethod]
-        public void TestLeft()
+        public void Left()
         {
             Assert.AreEqual("Hello", "Hello World".Left(5));
         }
 
         [TestMethod]
-        public void TestPrefix()
+        public void Prefix()
         {
             Assert.AreEqual("Hello World", "World".Prefix("Hello "));
         }
 
         [TestMethod]
-        public void TestTrimLeft()
+        public void TrimLeft()
         {
             Assert.AreEqual("World", "Hello World".TrimLeft(6));
         }
 
         [TestMethod]
-        public void TestReplaceAtStart()
+        public void ReplaceAtStart()
         {
             Assert.AreEqual("Hello World", "Hekki World".ReplaceAtStart("Hekki", "Hello"));
         }
 
         [TestMethod]
-        public void TestReplaceAtStartNotStart()
+        public void ReplaceAtStartNotStart()
         {
             Assert.AreEqual("Hekki World", "Hekki World".ReplaceAtStart("kki", "llo"));
         }
 
         [TestMethod]
-        public void TestReplaceStartWith()
+        public void ReplaceStartWith()
         {
             Assert.AreEqual("Hello World", "Hekki World".ReplaceStartWith("Hello"));
         }
 
         [TestMethod]
-        public void TestRight()
+        public void Right()
         {
             Assert.AreEqual("World", "Hello World".Right(5));
         }
 
         [TestMethod]
-        public void TestSuffix()
+        public void Suffix()
         {
             Assert.AreEqual("Hello World", "Hello".Suffix(" World"));
         }
 
         [TestMethod]
-        public void TestTrimRight()
+        public void TrimRight()
         {
             Assert.AreEqual("Hello", "Hello World".TrimRight(6));
+        }
+
+        [TestMethod]
+        public void ReplaceAtEnd()
+        {
+            Assert.AreEqual("Hello World", "Hello Woeks".ReplaceAtEnd("eks", "rld"));
+        }
+
+        [TestMethod]
+        public void ReplaceEndWith()
+        {
+            Assert.AreEqual("Hello World", "Hello Woeks".ReplaceEndWith("World"));
+        }
+
+        [TestMethod]
+        public void Between()
+        {
+            Assert.AreEqual("hidden", "Hello[hidden]World".Between("[", "]"));
+        }
+        [TestMethod]
+        public void Splice()
+        {
+            Assert.AreEqual("Hello[hidden]World", "Hello World".Splice(5, 6, "[hidden]"));
+        }
+        [TestMethod]
+        public void Before()
+        {
+            Assert.AreEqual("Hello", "Hello World".Before(" "));
+        }
+
+        [TestMethod]
+        public void After()
+        {
+            Assert.AreEqual("World", "Hello World".After(" "));
+        }
+
+        [TestMethod]
+        public void TrimBefore()
+        {
+            Assert.AreEqual("World", "Hello World".TrimBefore("World"));
+        }
+
+        [TestMethod]
+        public void TrimAfter()
+        {
+            Assert.AreEqual("Hello", "Hello World".TrimAfter("Hello"));
+        }
+
+        [TestMethod]
+        public void CompressSpaces()
+        {
+            Assert.AreEqual(" He l lo Wo rl d ", "  He  l  lo    Wo  rl d  ".CompressSpaces());
+        }
+
+        [TestMethod]
+        public void CompressSpacesNull()
+        {
+            Assert.AreEqual("", nullstring.CompressSpaces());
+        }
+
+        [TestMethod]
+        public void CompressSpacesTrimmed()
+        {
+            Assert.AreEqual("He l lo Wo rl d", "  He  l  lo    Wo  rl d  ".CompressSpacesTrimmed());
+        }
+
+        [TestMethod]
+        public void RemoveWhitespace()
+        {
+            Assert.AreEqual("HelloWorld", "  He  l  lo    Wo  rl d  ".RemoveWhitespace());
+        }
+
+        [TestMethod]
+        public void RemoveWhitespaceNull()
+        {
+            Assert.AreEqual("", nullstring.RemoveWhitespace());
+        }
+
+        [TestMethod]
+        public void Count()
+        {
+            Assert.AreEqual(2, "Hello World".Count("o"));
+        }
+
+        [TestMethod]
+        public void CountNotFound()
+        {
+            Assert.AreEqual(0, "Hello World".Count("z"));
+        }
+
+        [TestMethod]
+        public void ToJson()
+        {
+            Assert.AreEqual("[\"Hello World\"]", "Hello World".ToJson());
         }
     }
 }

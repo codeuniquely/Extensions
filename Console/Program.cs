@@ -33,7 +33,6 @@
             //Write("false".ToBool());
             //Write("False".ToBool());
             //Write("0".ToBool());
-            //Write("Hello World".ToUTF8Bytes());
             //Write("Hello World".IsEmpty());
             //Write("Hello World".IsNotEmpty());
             //Write("Hello World".Compare("Hello World"));
@@ -46,20 +45,21 @@
             //Write("Gwkki World".ReplaceStartWith("Hello"));
             //Write("Hello World".Right(5));
             //Write("Hello".Suffix(" World"));
-            Write("Hello World".TrimRight(5));
-            Write("Hello Woeks".ReplaceAtEnd("eks", "rld"));
-            Write("Hello Qieks".ReplaceEndWith("World"));
-            Write("Hello[hidden]World".Between("[", "]"));
-            Write("Hello World".Splice(5, 6, "[between]"));
-            Write("Hello World".Before(" "));
-            Write("Hello World".After(" "));
-            Write("Hello World".TrimBefore("World"));
-            Write("Hello World".TrimAfter("Hell"));
-            Write("  He  l  lo    Wo  rl d".CompressSpaces());
-            Write("  He  l  lo    Wo  rl d".RemoveWhitespace());
-            Write("Hello  World".PadLiterals());
-            Write("Hello  World".Count("o").ToString());
-            Write("Hello  World".ToJson());
+            //Write("Hello World".TrimRight(5));
+            //Write("Hello Woeks".ReplaceAtEnd("eks", "rld"));
+            //Write("Hello Qieks".ReplaceEndWith("World"));
+            //Write("Hello[hidden]World".Between("[", "]"));
+            //Write("Hello World".Splice(5, 6, "[between]"));
+            //Write("Hello World".Before(" "));
+            //Write("Hello World".After(" "));
+            //Write("Hello World".TrimBefore("World"));
+            //Write("Hello World".TrimAfter("Hello"));
+            //Write("  He  l  lo    Wo  rl d".CompressSpaces());
+            //Write("  He  l  lo    Wo  rl d".RemoveWhitespace());
+            //Write("Hello  World".Count("o").ToString());
+            Write("Hello World".ToJson());
+            Write("Hello World".PadLiterals());
+            Write("Hello World".ToUTF8Bytes());
         }
 
         private static void IEnumerableExtension()

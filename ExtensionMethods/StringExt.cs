@@ -465,6 +465,25 @@
         }
 
         /// <summary>
+        /// Removed double spaces in the string leaving only a single space
+        /// </summary>
+        /// <param name="s">this string</param>
+        /// <returns>A <see cref="System.String"/> containing the text after the spaces have been compressed</returns>
+        public static string CompressSpacesTrimmed(this string s)
+        {
+            if (s == null) return string.Empty;
+
+            s = s.Trim();
+
+            while (s.IndexOf("  ") != -1)
+            {
+                s = s.Replace("  ", " ");
+            }
+
+            return s;
+        }
+
+        /// <summary>
         /// Removes all whitespace charcters in a string 
         /// </summary>
         /// <param name="s">this string</param>
