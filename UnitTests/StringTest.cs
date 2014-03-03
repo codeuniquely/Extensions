@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Diagnostics;
 
 namespace UnitTests
 {
@@ -238,7 +239,7 @@ namespace UnitTests
         [TestMethod]
         public void ToJson()
         {
-            Assert.AreEqual("[\"Hello World\"]", "Hello World".ToJson());
+            Assert.AreEqual("\"Hello World\"", "Hello World".ToJson());
         }
     }
 }

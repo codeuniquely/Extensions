@@ -5,7 +5,7 @@ namespace UnitTests
 {
     // Declare an ENUM for testsing
     [TestClass]
-    public class Enum
+    public class EnumTest
     {
         [TestMethod]
         public void EnumToInt()
@@ -34,6 +34,12 @@ namespace UnitTests
         public void Description()
         {
             Assert.AreEqual("Sixth", TestEnumDescriptions.Six.Description());
+        }
+
+        [TestMethod]
+        public void ToJson()
+        {
+            Assert.AreEqual("6", TestEnumDescriptions.Six.ToJson());
         }
     }
 }
