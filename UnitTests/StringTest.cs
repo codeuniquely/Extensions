@@ -26,7 +26,7 @@ namespace UnitTests
         [TestMethod]
         public void IsEmptyNoContents()
         {
-            Assert.AreEqual(true, "".IsEmpty());
+            Assert.AreEqual(true, emptystring.IsEmpty());
         }
 
         [TestMethod]
@@ -56,7 +56,7 @@ namespace UnitTests
         [TestMethod]
         public void NoContentsIsNotNotEmpty()
         {
-            Assert.AreEqual(false, "".IsNotEmpty());
+            Assert.AreEqual(false, emptystring.IsNotEmpty());
         }
 
         [TestMethod]
@@ -105,13 +105,13 @@ namespace UnitTests
         [TestMethod]
         public void LimitEmptyOrShort()
         {
-            Assert.AreEqual("", emptystring.LimitTo(5));
+            Assert.AreEqual(emptystring, emptystring.LimitTo(5));
         }
 
         [TestMethod]
         public void LimitNull()
         {
-            Assert.AreEqual("", nullstring.LimitTo(5));
+            Assert.AreEqual(emptystring, nullstring.LimitTo(5));
         }
 
         [TestMethod]
@@ -123,13 +123,13 @@ namespace UnitTests
         [TestMethod]
         public void LeftEmptyOrShort()
         {
-            Assert.AreEqual("", emptystring.Left(5));
+            Assert.AreEqual(emptystring, emptystring.Left(5));
         }
 
         [TestMethod]
         public void LeftNull()
         {
-            Assert.AreEqual("", nullstring.Left(5));
+            Assert.AreEqual(emptystring, nullstring.Left(5));
         }
 
         [TestMethod]
@@ -159,19 +159,19 @@ namespace UnitTests
         [TestMethod]
         public void TrimLeftEmpty()
         {
-            Assert.AreEqual("", emptystring.TrimLeft(6));
+            Assert.AreEqual(emptystring, emptystring.TrimLeft(6));
         }
 
         [TestMethod]
         public void TrimLeftEmptyShort()
         {
-            Assert.AreEqual("", shortstring.TrimLeft(6));
+            Assert.AreEqual(emptystring, shortstring.TrimLeft(6));
         }
 
         [TestMethod]
         public void TrimLeftNull()
         {
-            Assert.AreEqual("", nullstring.TrimLeft(6));
+            Assert.AreEqual(emptystring, nullstring.TrimLeft(6));
         }
 
         [TestMethod]
@@ -372,9 +372,9 @@ namespace UnitTests
         }
 
         [TestMethod]
-        public void SpliceZeroZero()
+        public void SpliceSameIndex()
         {
-            // Should splice as nothing in orginal string is being replaced
+            // Should not splice as nothing in orginal string is being replaced
             Assert.AreEqual("Hello World", "Hello World".Splice(0, 0, "[hidden]"));
         }
 
@@ -468,7 +468,7 @@ namespace UnitTests
         [TestMethod]
         public void CompressSpacesNull()
         {
-            Assert.AreEqual("", nullstring.CompressSpaces());
+            Assert.AreEqual(emptystring, nullstring.CompressSpaces());
         }
 
         [TestMethod]
@@ -480,7 +480,7 @@ namespace UnitTests
         [TestMethod]
         public void CompressSpacesTrimmedNull()
         {
-            Assert.AreEqual("", nullstring.CompressSpacesTrimmed());
+            Assert.AreEqual(emptystring, nullstring.CompressSpacesTrimmed());
         }
 
         [TestMethod]
@@ -492,7 +492,7 @@ namespace UnitTests
         [TestMethod]
         public void RemoveWhitespaceNull()
         {
-            Assert.AreEqual("", nullstring.RemoveWhitespace());
+            Assert.AreEqual(emptystring, nullstring.RemoveWhitespace());
         }
 
         [TestMethod]
