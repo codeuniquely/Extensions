@@ -6,6 +6,8 @@ namespace UnitTests
     [TestClass]
     public class BoolTest
     {
+        private const string nullstring = null;
+
         [TestMethod]
         public void ToBoolTrueUpper()
         {
@@ -85,6 +87,24 @@ namespace UnitTests
         public void TrueTotring()
         {
             Assert.AreEqual("True", true.ToString());
+        }
+
+        [TestMethod]
+        public void ToBoolNonNumber()
+        {
+            Assert.AreEqual(false, "Hello".ToBool());
+        }
+
+        [TestMethod]
+        public void ToBoolNull()
+        {
+            Assert.AreEqual(false, nullstring.ToBool());
+        }
+
+        [TestMethod]
+        public void ToBoolEmpty()
+        {
+            Assert.AreEqual(false, string.Empty.ToBool());
         }
     }
 }

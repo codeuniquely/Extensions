@@ -118,6 +118,7 @@
         /// <returns></returns>
         public static string LimitTo(this string s, int length)
         {
+            if (s == null) return string.Empty;
             return (s.Length > length) ? s.Substring(0, length) : s;
         }
 
@@ -167,6 +168,8 @@
         /// <returns>A string with the left most [size] characters removed or string.Empty</returns>
         public static string TrimLeft(this string s, int size)
         {
+            if (s == null) return string.Empty;
+
             string response = s;
 
             if (!string.IsNullOrEmpty(s))
@@ -195,12 +198,16 @@
         /// <returns>A string with the replaced start if it matched or the original string</returns>
         public static string ReplaceAtStart(this string s, string find, string replace)
         {
+            if (s == null) return string.Empty;
+            if (find == null) return s;
+            string response = s;
+
             if (!string.IsNullOrWhiteSpace(s) && s.StartsWith(find))
             {
-                s = string.Concat(replace, s.TrimLeft(find.Length));
+                response = string.Concat(replace ?? string.Empty, s.TrimLeft(find.Length));
             }
 
-            return s;
+            return response;
         }
 
         /// <summary>
@@ -227,6 +234,7 @@
         /// <returns>The right most [size] characters from the string</returns>
         public static string Right(this string s, int size)
         {
+            if (s == null) return string.Empty;
             string response = s;
 
             if (!string.IsNullOrEmpty(s))
@@ -250,8 +258,8 @@
         /// <returns>A string combined string</returns>
         public static string Suffix(this string s, string add)
         {
-            if (s == null) return add;
-            return string.Concat(s, add);
+            if (s == null) return add ?? string.Empty;
+            return string.Concat(s, add ?? string.Empty);
         }
 
         /// <summary>
@@ -262,6 +270,7 @@
         /// <returns>A string with the [szie] right most charcters removed or string.Empty</returns>
         public static string TrimRight(this string s, int size)
         {
+            if (s == null) return string.Empty;
             string response = s;
 
             if (!string.IsNullOrEmpty(s))
@@ -290,12 +299,16 @@
         /// <returns>A string with the end replaced with the characters supplied</returns>
         public static string ReplaceAtEnd(this string s, string find, string replace)
         {
+            if (s == null) return string.Empty;
+            if (find == null) return s;
+            string response = s;
+
             if (!string.IsNullOrWhiteSpace(s) && s.EndsWith(find))
             {
-                s = string.Concat(s.TrimRight(find.Length), replace);
+                response = string.Concat(s.TrimRight(find.Length), replace ?? string.Empty);
             }
 
-            return s;
+            return response;
         }
 
         /// <summary>
@@ -547,10 +560,11 @@
             if ( test.IsNotEmpty() )
             {
                 int pos = s.IndexOf(test);
+                int length = s.Length;
                 while (pos != -1)
                 {
                     ++times;
-                    pos = ((pos + 1) >= s.Length) ? -1 : s.IndexOf(test, pos + 1);
+                    pos = ((pos + 1) >= length) ? -1 : s.IndexOf(test, pos + 1);
                 }
             }
 

@@ -10,6 +10,12 @@ namespace UnitTests
         private const int positive = 1;
         private const int negative = -1;
 
+        private const int flags = 31;
+        private const int flag2 = 4;
+        private const int flag3 = 8;
+        private const int flag4 = 16;
+        private const int flag5 = 32;
+
         [TestMethod]
         public void TestIntZeroIsZero()
         {
@@ -146,12 +152,6 @@ namespace UnitTests
         // Flags Checking 
         // ==================
 
-        private const int flags = 31;
-        private const int flag2 = 4;
-        private const int flag3 = 8;
-        private const int flag4 = 16;
-        private const int flag5 = 32;
-
         [TestMethod]
         public void TestIntFlagIsSet()
         {
@@ -180,6 +180,18 @@ namespace UnitTests
         public void TestIntFlagRemoveMultipleFlags()
         {
             Assert.AreEqual(7, flags.RemoveFlag(flag3 | flag4));
+        }
+
+        [TestMethod]
+        public void TestIntFlagRemoveNotPresentFlags()
+        {
+            Assert.AreEqual(flags, flags.RemoveFlag(flag5));
+        }
+
+        [TestMethod]
+        public void TestIntFlagRemoveZeroFlags()
+        {
+            Assert.AreEqual(flags, flags.RemoveFlag(0));
         }
 
         // ==================

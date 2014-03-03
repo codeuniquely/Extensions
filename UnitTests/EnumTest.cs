@@ -13,6 +13,7 @@ namespace UnitTests
             Assert.AreEqual(6, TestEnum.Six.ToInt());
         }
 
+        [TestMethod]
         public void EnumToString()
         {
             Assert.AreEqual("Six", TestEnum.Six.ToString());

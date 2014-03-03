@@ -59,7 +59,9 @@
             //Write("Hello  World".Count("o").ToString());
             Write("Hello World".ToJson());
             Write("Hello World".PadLiterals());
-            Write("Hello World".ToUTF8Bytes());
+
+            foreach (var x in "Hello World".ToUTF8Bytes())
+                Write(x.ToString("x"));
         }
 
         private static void IEnumerableExtension()
